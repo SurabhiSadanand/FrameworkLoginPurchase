@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.naveenautomation.base.TestBase;
 
@@ -99,8 +101,11 @@ public class CheckoutPage extends TestBase {
 	public void clickBillingContinueBtn() {
 		billingContinueBtn.click();
 	}
+	
+	
 
 	public void clickDeliveryDetailsContinueBtn() {
+		explicitWait(30, By.cssSelector("input#button-shipping-address"));
 		deliveryDetailsContinueBtn.click();
 	}
 
@@ -160,6 +165,13 @@ public class CheckoutPage extends TestBase {
 	public String getTitle() {
 
 		return webDriver.getTitle();
+	}
+	
+	public WebElement explicitWait(int sec,By locator) {
+
+		WebDriverWait wait = new WebDriverWait(webDriver, sec);
+
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 }

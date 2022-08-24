@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -16,6 +17,7 @@ public class TestBase {
 	public static WebDriver webDriver;
 	public Properties prop;
 	public static Actions ac;
+	//public static Logger logger;
 
 	public TestBase() {
 
@@ -23,7 +25,7 @@ public class TestBase {
 		FileInputStream file;
 		try {
 			file = new FileInputStream(
-					"C:\\JavaProject\\testingframework\\src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
+					"C:\\JavaProject\\FrameworkLoginPurchase\\src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
 			try {
 				prop.load(file);
 			} catch (IOException e) {
@@ -36,7 +38,10 @@ public class TestBase {
 		}
 
 	}
-
+//    public void loggerSetup() {
+//    	
+//    	logger = Logger.getLogger(TestBase.class);
+//    }
 	public void initialization() {
 
 		String browserName = prop.getProperty("browser");
