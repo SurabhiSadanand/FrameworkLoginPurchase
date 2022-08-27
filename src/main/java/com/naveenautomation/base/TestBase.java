@@ -33,12 +33,13 @@ public class TestBase {
 	public TestBase() {
 
 		prop = new Properties();
-		FileInputStream file;
+		FileInputStream file1;
+		FileInputStream file2;
 		try {
-			file = new FileInputStream(
+			file1 = new FileInputStream(
 					"C:\\JavaProject\\FrameworkLoginPurchase\\src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
 			try {
-				prop.load(file);
+				prop.load(file1);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -90,6 +91,38 @@ public class TestBase {
 		webDriver.manage().timeouts().pageLoadTimeout(Utils.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		webDriver.manage().timeouts().implicitlyWait(Utils.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
 
+	}
+
+	public String email() {
+		return prop.getProperty("email");
+	}
+
+	public String password() {
+		return prop.getProperty("password");
+	}
+
+	public String firstName() {
+		return prop.getProperty("firstname");
+	}
+
+	public String lastName() {
+		return prop.getProperty("lastname");
+	}
+
+	public String address() {
+		return prop.getProperty("address");
+	}
+
+	public String place() {
+		return prop.getProperty("place");
+	}
+
+	public String postalCode() {
+		return prop.getProperty("postalcode");
+	}
+
+	public String newPassword() {
+		return prop.getProperty("newpassword");
 	}
 
 	public void quitBrowser() {

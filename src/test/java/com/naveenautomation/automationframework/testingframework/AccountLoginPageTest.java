@@ -20,14 +20,17 @@ public class AccountLoginPageTest extends TestBase {
 
 		initialization();
 		yp = new YourStorePage();
-		yp.clickMyAccountBtn();
-		accountLogin = yp.clickLoginBtn();
+
 	}
 
 	@Test
 	public void test() {
 
-		String titleOfPage = accountLogin.login("surabhi.sadanand@gmail.com", "test").getTitle();
+		yp.clickMyAccountBtn();
+
+		accountLogin = yp.clickLoginBtn();
+
+		String titleOfPage = accountLogin.login(email(), password()).getTitle();
 
 		Assert.assertEquals(titleOfPage, "My Account", "Login title doesnot match!!!");
 	}

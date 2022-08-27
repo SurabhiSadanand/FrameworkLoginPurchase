@@ -26,18 +26,18 @@ public class CheckoutPageTest extends TestBase {
 
 		initialization();
 		yp = new YourStorePage();
-		yp.clickMyAccountBtn();
-		accLogin = yp.clickLoginBtn();
-		myAcc = accLogin.login("surabhi.sadanand@gmail.com", "test");
-		mp = myAcc.selectMonitorsCategory();
-		mp.clickAddToCart();
-		cp = mp.checkoutProcess();
 
 	}
 
 	@Test
 	public void checkoutTest() {
 
+		yp.clickMyAccountBtn();
+		accLogin = yp.clickLoginBtn();
+		myAcc = accLogin.login(email(), password());
+		mp = myAcc.selectMonitorsCategory();
+		mp.clickAddToCart();
+		cp = mp.checkoutProcess();
 		cp.checkoutCompleteProcess("Surabhi", "Sadanand", "26PineValey", "St.Thomas", "N5P0A9", "Canada", "Ontario");
 
 	}

@@ -22,14 +22,15 @@ public class MyAccountPageTest extends TestBase {
 
 		initialization();
 		yp = new YourStorePage();
-		yp.clickMyAccountBtn();
-		accountLogin = yp.clickLoginBtn();
-		myAccount = accountLogin.login("surabhi.sadanand@gmail.com", "test");
 
 	}
 
 	@Test
 	public void selectCategoryTest() {
+
+		yp.clickMyAccountBtn();
+		accountLogin = yp.clickLoginBtn();
+		myAccount = accountLogin.login(email(), password());
 
 		Assert.assertEquals(myAccount.selectMonitorsCategory().getTitle(), "Monitors", "Page title doesnot match");
 

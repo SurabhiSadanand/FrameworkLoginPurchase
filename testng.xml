@@ -22,6 +22,10 @@
 			<class
 				name="com.naveenautomation.automationframework.testingframework.MonitorsPageTest" />
 			<class
+				name="com.naveenautomation.automationframework.testingframework.OrderHistoryPageTest" />
+			<class
+				name="com.naveenautomation.automationframework.testingframework.ChangePasswordPageTest" />
+			<class
 				name="com.naveenautomation.automationframework.testingframework.CheckoutPageTest" />
 		</classes>
 	</test> <!-- Test -->

@@ -18,6 +18,15 @@ public class MyAccountPage extends TestBase {
 	@FindBy(css = "ul.nav.navbar-nav li:nth-of-type(3) ul li:nth-of-type(2) a")
 	WebElement monitorsBtn;
 
+	@FindBy(css = "div#content ul:nth-of-type(1) li:nth-of-type(2) a")
+	WebElement changePassword;
+
+	@FindBy(css = "div.alert.alert-success.alert-dismissible")
+	WebElement successMessage;
+
+	@FindBy(css = "div#content ul:nth-of-type(2) li:nth-of-type(1) a")
+	WebElement orderHistory;
+
 	public void hoverOverComponentsBtn() {
 		ac.moveToElement(componentsBtn).perform();
 	}
@@ -33,9 +42,25 @@ public class MyAccountPage extends TestBase {
 		return clickMonitorsBtn();
 	}
 
+	public ChangePasswordPage changePasswordBtnClick() {
+
+		changePassword.click();
+
+		return new ChangePasswordPage();
+	}
+
+	public OrderHistoryPage orderHistoryClick() {
+		orderHistory.click();
+		return new OrderHistoryPage();
+	}
+
 	public String getTitle() {
 
 		return webDriver.getTitle();
+	}
+	
+	public String getTextOfSuccessMsg() {
+		return successMessage.getText();
 	}
 
 }

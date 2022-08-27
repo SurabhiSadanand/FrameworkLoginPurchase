@@ -17,22 +17,24 @@ public class MonitorsPageTest extends TestBase {
 	AccountLoginPage accLogin;
 	MyAccountPage myAcc;
 	MonitorsPage mp;
-	
+
 	@BeforeMethod
 	public void startBrowserSession() {
 
 		initialization();
 		yp = new YourStorePage();
-		yp.clickMyAccountBtn();
-		accLogin = yp.clickLoginBtn();
-		myAcc = accLogin.login("surabhi.sadanand@gmail.com", "test");
-		mp=myAcc.selectMonitorsCategory();
+
 	}
-	
+
 	@Test
 	public void test() {
-		Assert.assertEquals(mp.checkoutProcess().getTitle(),"Checkout","Page title doesnot match");
+		yp.clickMyAccountBtn();
+		accLogin = yp.clickLoginBtn();
+		myAcc = accLogin.login(email(), password());
+		mp = myAcc.selectMonitorsCategory();
+		Assert.assertEquals(mp.checkoutProcess().getTitle(), "Checkout", "Page title doesnot match");
 	}
+
 	@AfterMethod
 	public void quitBrowserSession() {
 		quitBrowser();

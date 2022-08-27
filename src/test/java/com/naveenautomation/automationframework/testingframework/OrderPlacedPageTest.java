@@ -27,19 +27,20 @@ public class OrderPlacedPageTest extends TestBase {
 
 		initialization();
 		yp = new YourStorePage();
-		yp.clickMyAccountBtn();
-		accLogin = yp.clickLoginBtn();
-		myAcc = accLogin.login("surabhi.sadanand@gmail.com", "test");
-		mp = myAcc.selectMonitorsCategory();
-		mp.clickAddToCart();
-		cp = mp.checkoutProcess();
-		op = cp.checkoutCompleteProcess("Surabhi", "Sadanand", "26PineValey", "St.Thomas", "N5P0A9", "Canada",
-				"Ontario");
+
 	}
 
 	@Test
 	public void orderPlacedTest() {
 
+		yp.clickMyAccountBtn();
+		accLogin = yp.clickLoginBtn();
+		myAcc = accLogin.login(email(), password());
+		mp = myAcc.selectMonitorsCategory();
+		mp.clickAddToCart();
+		cp = mp.checkoutProcess();
+		op = cp.checkoutCompleteProcess("Surabhi", "Sadanand", "26PineValey", "St.Thomas", "N5P0A9", "Canada",
+				"Ontario");
 		op = cp.clickconfirmOrderBtn();
 		String title = op.getTitle();
 		Assert.assertEquals(title, "Your order has been placed!", "Error in order placement!!!");
