@@ -127,7 +127,7 @@ public class CheckoutPage extends TestBase {
 
 	public OrderPlacedPage clickconfirmOrderBtn() {
 
-		Utils.click(confirmOrderBtn);
+		(confirmOrderBtn).click();
 		return new OrderPlacedPage();
 	}
 

@@ -33,11 +33,11 @@ public class OrderHistoryPageTest extends TestBase {
 		yourStorePage.clickLoginBtn();
 		myAccPagePage = accLoginPage.login(email(), password());
 		orderHistoryPage = myAccPagePage.orderHistoryClick();
-		String orderTotal = orderHistoryPage.totalFromTable("#1470");
-		Assert.assertEquals(orderTotal, "$805.00", "Order total does not match");
+		String orderTotal = orderHistoryPage.totalFromTable("#1592");
+		Assert.assertEquals(orderTotal, "$405.00", "Order total does not match");
 
-		String orderDate = orderHistoryPage.dateFromTable("#1470");
-		Assert.assertEquals(orderDate, "25/08/2022", "Date does not match");
+		String orderDate = orderHistoryPage.dateFromTable("#1592");
+		Assert.assertEquals(orderDate, "28/08/2022", "Date does not match");
 
 	}
 
