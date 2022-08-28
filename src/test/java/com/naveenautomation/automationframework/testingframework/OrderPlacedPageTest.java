@@ -39,11 +39,10 @@ public class OrderPlacedPageTest extends TestBase {
 		mp = myAcc.selectMonitorsCategory();
 		mp.clickAddToCart();
 		cp = mp.checkoutProcess();
-		op = cp.checkoutCompleteProcess("Surabhi", "Sadanand", "26PineValey", "St.Thomas", "N5P0A9", "Canada",
-				"Ontario");
+		op = cp.checkoutCompleteProcess(firstName(), lastName(), address(), place(), postalCode(), country(), zone());
 		op = cp.clickconfirmOrderBtn();
-		String title = op.getTitle();
-		Assert.assertEquals(title, "Your order has been placed!", "Error in order placement!!!");
+		String message = op.getTitleOrderPlaced();
+		Assert.assertEquals(message, "Your order has been placed!", "Error in order placement!!!");
 	}
 
 	@AfterMethod

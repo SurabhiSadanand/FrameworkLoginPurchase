@@ -10,10 +10,12 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.events.internal.EventFiringKeyboard;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
 import com.naveenautomation.Utils.Utils;
@@ -29,12 +31,13 @@ public class TestBase {
 	public static Logger logger;
 	public static EventFiringWebDriver e_driver;
 	public static WebDriverEvents events;
+	public static JavascriptExecutor jse;
 
 	public TestBase() {
 
 		prop = new Properties();
 		FileInputStream file1;
-		FileInputStream file2;
+
 		try {
 			file1 = new FileInputStream(
 					"C:\\JavaProject\\FrameworkLoginPurchase\\src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
@@ -79,6 +82,7 @@ public class TestBase {
 			System.out.println("Verify you passed the correct browser name");
 			break;
 		}
+		jse = (JavascriptExecutor) webDriver;
 		ac = new Actions(webDriver);
 		e_driver = new EventFiringWebDriver(webDriver);
 		events = new WebDriverEvents();
@@ -121,6 +125,14 @@ public class TestBase {
 		return prop.getProperty("postalcode");
 	}
 
+	public String country() {
+		return prop.getProperty("country");
+	}
+
+	public String zone() {
+		return prop.getProperty("zone");
+	}
+
 	public String newPassword() {
 		return prop.getProperty("newpassword");
 	}
@@ -129,5 +141,21 @@ public class TestBase {
 
 		webDriver.quit();
 	}
+
+//	public void waitForDocumentCompleteState(int timeOutInSeconds) {
+//		new WebDriverWait(webDriver, timeOutInSeconds).until((ExpectedCondition<Boolean>) v -> {
+//			logger.info("Verifying page has loaded......");
+//			jse = (JavascriptExecutor) webDriver;
+//			String documentIsReady = jse.executeScript("return document.readyState").toString();
+//			while (true) {
+//				if (documentIsReady.equalsIgnoreCase("complete")) {
+//					logger.info("Page has loaded completely......");
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			}
+//		});
+//	}
 
 }

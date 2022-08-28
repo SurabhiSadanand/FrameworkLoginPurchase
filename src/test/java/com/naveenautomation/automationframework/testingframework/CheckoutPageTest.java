@@ -38,7 +38,7 @@ public class CheckoutPageTest extends TestBase {
 		mp = myAcc.selectMonitorsCategory();
 		mp.clickAddToCart();
 		cp = mp.checkoutProcess();
-		cp.checkoutCompleteProcess("Surabhi", "Sadanand", "26PineValey", "St.Thomas", "N5P0A9", "Canada", "Ontario");
+		cp.checkoutCompleteProcess(firstName(), lastName(), address(), place(), postalCode(), country(), zone());
 
 	}
 

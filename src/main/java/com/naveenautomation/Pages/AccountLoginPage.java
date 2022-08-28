@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.naveenautomation.Utils.Utils;
 import com.naveenautomation.base.TestBase;
 
 public class AccountLoginPage extends TestBase {
@@ -23,17 +24,17 @@ public class AccountLoginPage extends TestBase {
 
 	public void enterEmail(String email) {
 
-		emailInputField.sendKeys(email);
+		Utils.sendKeys(emailInputField, email);
 	}
 
 	public void enterPassword(String pass) {
 
-		passwordInputField.sendKeys(pass);
+		Utils.sendKeys(passwordInputField, pass);
 	}
 
 	public MyAccountPage clickLoginBtn() {
 
-		loginBtn.click();
+		Utils.click(loginBtn);
 		return new MyAccountPage();
 	}
 

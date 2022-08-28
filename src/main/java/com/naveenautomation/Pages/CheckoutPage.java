@@ -8,12 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.naveenautomation.Utils.Utils;
 import com.naveenautomation.base.TestBase;
 
 public class CheckoutPage extends TestBase {
 
 	public CheckoutPage() {
 
+		// waitForDocumentCompleteState(10);
 		PageFactory.initElements(webDriver, this);
 	}
 
@@ -63,72 +65,75 @@ public class CheckoutPage extends TestBase {
 	WebElement confirmOrderBtn;
 
 	public void newAddressBtnClick() {
-		newAddressBtn.click();
+		Utils.click(newAddressBtn);
 	}
 
 	public void enterFirstName(String fname) {
-		fnameInputField.sendKeys(fname);
+		Utils.sendKeys(fnameInputField, fname);
 	}
 
 	public void enterLastName(String lname) {
-		lnameInputField.sendKeys(lname);
+		Utils.sendKeys(lnameInputField, lname);
 	}
 
 	public void enterCompanyName(String companyName) {
-		companyInputField.sendKeys(companyName);
+		Utils.sendKeys(companyInputField, companyName);
 	}
 
 	public void enterAddress(String address) {
-		address1InputField.sendKeys(address);
+		Utils.sendKeys(address1InputField, address);
 	}
 
 	public void enterCity(String city) {
-		cityInputField.sendKeys(city);
+		Utils.sendKeys(cityInputField, city);
 	}
 
 	public void enterPostcode(String code) {
-		postCodeInputField.sendKeys(code);
+		Utils.sendKeys(postCodeInputField, code);
 	}
 
-	public void selectCountry(String country) {
-		select(countryField).selectByVisibleText(country);
+	public void selectCountry() {
+		select(countryField).selectByVisibleText("Canada");
+
 	}
 
 	public void selectZone(String zone) {
-		select(zoneField).selectByVisibleText(zone);
+		Utils.selectWithWait(webDriver, By.cssSelector("#input-payment-zone"), 50, "Ontario",
+				webDriver.findElement(By.cssSelector("#input-payment-zone")));
+		// Utils.selectFromDropDown(zoneField, zone);
+
 	}
 
 	public void clickBillingContinueBtn() {
-		billingContinueBtn.click();
+		Utils.click(billingContinueBtn);
 	}
-	
-	
 
 	public void clickDeliveryDetailsContinueBtn() {
-		explicitWait(30, By.cssSelector("input#button-shipping-address"));
-		deliveryDetailsContinueBtn.click();
+		Utils.waitForElementToBeClickable(deliveryDetailsContinueBtn);
+		Utils.click(deliveryDetailsContinueBtn);
 	}
 
 	public void clickDeliveryMethodContinueBtn() {
-		deliveryMethodContinueBtn.click();
+		Utils.click(deliveryMethodContinueBtn);
 	}
 
 	public void clicktermsAgreeBtn() {
-		termsAgreeBtn.click();
+		Utils.click(termsAgreeBtn);
 	}
 
 	public void clickPaymentContinueBtn() {
-		paymentContinueBtn.click();
+		Utils.click(paymentContinueBtn);
 	}
 
 	public OrderPlacedPage clickconfirmOrderBtn() {
 
-		confirmOrderBtn.click();
+		Utils.click(confirmOrderBtn);
 		return new OrderPlacedPage();
 	}
 
 	public OrderPlacedPage checkoutCompleteProcess(String fname, String lname, String addr, String city, String pc,
 			String country, String zone) {
+		Utils.sleep(5000);
 		newAddressBtnClick();
 
 		enterFirstName(fname);
@@ -141,7 +146,7 @@ public class CheckoutPage extends TestBase {
 
 		enterPostcode(pc);
 
-		selectCountry(country);
+		selectCountry();
 
 		selectZone(zone);
 
@@ -154,24 +159,16 @@ public class CheckoutPage extends TestBase {
 
 	}
 
+	public String getTitle() {
+
+		return webDriver.getTitle();
+	}
+
 	public Select select(WebElement element) {
 
 		Select sc = new Select(element);
 
 		return sc;
-
-	}
-
-	public String getTitle() {
-
-		return webDriver.getTitle();
-	}
-	
-	public WebElement explicitWait(int sec,By locator) {
-
-		WebDriverWait wait = new WebDriverWait(webDriver, sec);
-
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 }

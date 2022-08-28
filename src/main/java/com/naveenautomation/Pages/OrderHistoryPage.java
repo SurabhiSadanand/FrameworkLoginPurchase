@@ -12,6 +12,7 @@ import com.naveenautomation.base.TestBase;
 public class OrderHistoryPage extends TestBase {
 
 	public OrderHistoryPage() {
+		//waitForDocumentCompleteState(10);
 		PageFactory.initElements(webDriver, this);
 	}
 

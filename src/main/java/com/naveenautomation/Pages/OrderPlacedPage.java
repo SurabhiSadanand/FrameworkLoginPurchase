@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.naveenautomation.Utils.Utils;
 import com.naveenautomation.base.TestBase;
 
 public class OrderPlacedPage extends TestBase {
@@ -18,16 +19,10 @@ public class OrderPlacedPage extends TestBase {
 	@FindBy(css = "div#content h1")
 	WebElement orderPlaced;
 
-	public String getTitle() {
+	public String getTitleOrderPlaced() {
 
-		explicitWait("Your order has been placed!", 30);
+		Utils.getTitleFromPage("Your order has been placed!", 30);
+
 		return orderPlaced.getText();
-	}
-
-	public boolean explicitWait(String name, int sec) {
-
-		WebDriverWait wait = new WebDriverWait(webDriver, sec);
-
-		return wait.until(ExpectedConditions.titleContains(name));
 	}
 }

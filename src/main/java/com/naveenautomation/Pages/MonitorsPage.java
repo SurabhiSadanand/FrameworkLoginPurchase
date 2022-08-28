@@ -4,12 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.naveenautomation.Utils.Utils;
 import com.naveenautomation.base.TestBase;
 
 public class MonitorsPage extends TestBase {
 
 	MonitorsPage() {
-
+		//waitForDocumentCompleteState(10);
 		PageFactory.initElements(webDriver, this);
 	}
 
@@ -21,12 +22,12 @@ public class MonitorsPage extends TestBase {
 
 	public void clickAddToCart() {
 
-		addToCartBtn.click();
+		Utils.click(addToCartBtn);
 	}
 
 	public CheckoutPage clickCheckoutBtn() {
 
-		checkOutBtn.click();
+		Utils.click(checkOutBtn);
 		return new CheckoutPage();
 	}
 

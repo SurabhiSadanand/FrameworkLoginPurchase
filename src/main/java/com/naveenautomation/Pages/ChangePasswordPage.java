@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.naveenautomation.Utils.Utils;
 import com.naveenautomation.base.TestBase;
 
 public class ChangePasswordPage extends TestBase {
@@ -23,15 +24,15 @@ public class ChangePasswordPage extends TestBase {
 	WebElement continueBtn;
 
 	public void enterPassword(String pass) {
-		password.sendKeys(pass);
+		Utils.sendKeys(password, pass);
 	}
 
 	public void enterConfirmPassword(String pass) {
-		passwordConfirm.sendKeys(pass);
+		Utils.sendKeys(passwordConfirm, pass);
 	}
 
 	public MyAccountPage clickContinueBtn() {
-		continueBtn.click();
+		Utils.click(continueBtn);
 		return new MyAccountPage();
 	}
 

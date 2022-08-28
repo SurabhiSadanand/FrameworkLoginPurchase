@@ -8,7 +8,7 @@ import com.naveenautomation.base.TestBase;
 
 public class MyAccountPage extends TestBase {
 	public MyAccountPage() {
-
+		//waitForDocumentCompleteState(10);
 		PageFactory.initElements(webDriver, this);
 	}
 
@@ -58,7 +58,7 @@ public class MyAccountPage extends TestBase {
 
 		return webDriver.getTitle();
 	}
-	
+
 	public String getTextOfSuccessMsg() {
 		return successMessage.getText();
 	}

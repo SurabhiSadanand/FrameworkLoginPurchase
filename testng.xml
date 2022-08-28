@@ -14,6 +14,8 @@
 			<class
 				name="com.naveenautomation.automationframework.testingframework.MyAccountPageTest" />
 			<class
+				name="com.naveenautomation.automationframework.testingframework.RegisterAccountPageTest" />
+			<class
 				name="com.naveenautomation.automationframework.testingframework.OrderPlacedPageTest" />
 			<class
 				name="com.naveenautomation.automationframework.testingframework.AccountLoginPageTest" />
