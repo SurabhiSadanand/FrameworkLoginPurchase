@@ -14,8 +14,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
 import com.naveenautomation.Utils.Utils;
@@ -40,7 +38,7 @@ public class TestBase {
 
 		try {
 			file1 = new FileInputStream(
-					"C:\\JavaProject\\FrameworkLoginPurchase\\src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
+					"./src\\main\\java\\com\\naveenautomation\\Config\\Config.properties");
 			try {
 				prop.load(file1);
 			} catch (IOException e) {
