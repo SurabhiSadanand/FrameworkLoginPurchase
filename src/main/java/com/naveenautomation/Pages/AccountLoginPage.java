@@ -12,7 +12,7 @@ public class AccountLoginPage extends TestBase {
 	public AccountLoginPage() {
 		PageFactory.initElements(webDriver, this);
 	}
-
+//test
 	@FindBy(id = "input-email")
 	private WebElement emailInputField;
 
